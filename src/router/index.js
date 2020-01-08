@@ -8,5 +8,8 @@ Vue.use(Router)    //プラグインの適用Routerが使えるようになる�
 //  export defaultとする事で、Routerの中身をmain.jsのimport router from './router/index.js';で呼べるようにする    mode: "history"とすることでURLに/#/が付かなくなる
 export default new Router ({
   mode: "history",
-  routes: [{ path: '/', name: 'home', component: Home }, { path: '/users',name: 'users',component: Users}]
+  routes: [
+    { path: '/', component: Home },
+    { path: '/users/:id', component: Users}
+  ]
 });
