@@ -7,7 +7,6 @@
         exact
         class="limk"
       >Home</router-link>
-
       <router-link
         to = "/users"
         exact

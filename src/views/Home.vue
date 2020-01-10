@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Houm</h3>
-    <button @clik = "toUsers">Usersのページに行く</button>
+    <button @click="toUsers">Usersのページに行く</button>
   </div>
 </template>
 
