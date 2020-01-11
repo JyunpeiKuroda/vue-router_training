@@ -14,6 +14,7 @@
         class= "link"
       >Users</router-link>
     </nav>
+    <Home></Home>
     <router-view></router-view>
   </div>
 </template>
@@ -25,7 +26,6 @@
   .link--activ{
   font-size: 30px;
   }
-
 </style>
 
 // <router-view>を宣言することにより、下の階層のmain.jsに行き。import router from './router/index.js';を読み込み'./router/index.js'に行きexport default new Routerの中で指定しているPathにより変わる。

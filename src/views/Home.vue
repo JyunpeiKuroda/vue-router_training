@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-view></router-view>
     <h3>Houm</h3>
     <button @click="toUsers">Usersのページに行く</button>
   </div>
@@ -9,7 +10,10 @@
 export default {
   methods: {
     toUsers() {
-      this.$router.push({ path:"users" });
+      this.$router.push({
+        name: 'users-id-profile',
+        params: { id: 1 }
+      });
     }
   }
 };
