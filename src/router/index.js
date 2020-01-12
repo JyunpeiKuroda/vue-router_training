@@ -4,6 +4,8 @@ import Home from '../views/Home.vue';
 import Users from '../views/Users.vue';
 import UsersPosts from '../views/UsersPosts.vue';
 import UsersProfile from '../views/UsersProfile.vue';
+import HeaderHome from '../views/HeaderHome.vue';
+import HeaderUsers from '../views/HeaderUsers.vue';
 
 
 Vue.use(Router)    //プラグインの適用Routerが使えるようになるだけ
@@ -12,15 +14,30 @@ Vue.use(Router)    //プラグインの適用Routerが使えるようになる�
 export default new Router ({
   mode: "history",
   routes: [
-    { path: '/', component: Home },
+    {
+      path: '/',
+      components: {
+        default: Home,
+        header: HeaderHome
+      }
+    },
     {
       path: '/users/:id',
-      component: Users,
-      props: true,
+      components: {
+        default: Users,
+        header: HeaderUsers
+      },
+      props:{
+        default: true,
+        header: false
+      },
       children: [
         { path: 'posts', component: UsersPosts},
         { path: 'profile', component: UsersProfile, name: 'users-id-profile'}
       ]
+    }, {
+      path: "*",
+      redirect: "/"    // http://localhost:8081/helloにアクセスされると、http://localhost:8081のHome画面に戻される。path: "*",としているので上で((指定している以外のpathは"全て"Homeにリダイレクト。
     }
   ]
 });
