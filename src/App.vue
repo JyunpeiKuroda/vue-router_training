@@ -1,32 +1,22 @@
 <template>
   <div style="width: 700px; margin: auto; padding-top: 50px;">
-    <nav>
-      <router-link
-        to = "/"
-        active-class="link--activ"
-        exact
-        class="limk"
-      >Home</router-link>
-
-      <router-link
-        to = "/users"
-        exact
-        active-class="link--activ"
-        class= "link"
-      >Users</router-link>
-    </nav>
-    <router-view></router-view>
+    <router-view name="header"></router-view>
+    <transition
+      name="fade"
+      mode="out-in"
+    >
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <style scoped>
-  .link{
-    margin: 10px;
-  }
-  .link--activ{
-  font-size: 30px;
-  }
-
+.fade-enter,
+.fade-leave-to{
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
 </style>
-
-// <router-view>を宣言することにより、下の階層のmain.jsに行き。import router from './router/index.js';を読み込み'./router/index.js'に行きexport default new Routerの中で指定しているPathにより変わる。
